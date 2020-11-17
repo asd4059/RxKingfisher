@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.12"
 
   s.dependency 'Kingfisher', '~> 5'
-  s.dependency 'RxSwift', '~> 5'
-  s.dependency 'RxCocoa', '~> 5'
+  s.dependency 'RxSwift'
+  s.dependency 'RxCocoa'
 end

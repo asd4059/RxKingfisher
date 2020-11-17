@@ -12,14 +12,14 @@ import Kingfisher
 extension Reactive where Base == KingfisherManager {
     public func retrieveImage(with source: Source,
                               options: KingfisherOptionsInfo? = nil) -> Single<Image> {
-        return Single.create { [base] single in
+        Single.create { [base] single in
             let task = base.retrieveImage(with: source,
                                           options: options) { result in
                 switch result {
                 case .success(let value):
                     single(.success(value.image))
                 case .failure(let error):
-                    single(.error(error))
+                    single(.failure(error))
                 }
             }
 
@@ -37,7 +37,7 @@ extension Reactive where Base == KingfisherManager {
 
 extension KingfisherManager: ReactiveCompatible {
     public var rx: Reactive<KingfisherManager> {
-        get { return Reactive(self) }
+        get { Reactive(self) }
         set { }
     }
 }

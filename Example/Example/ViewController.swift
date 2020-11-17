@@ -70,7 +70,7 @@ class ViewController: UIViewController {
             .startWith("Select Option")
             .map { $0 == "-- Select an Option" ? "Select Option" : $0 }
             .map(imageURL)
-            .bind(to: image.kf.rx.image(options: [.transition(.fade(0.2)),
+            .bind(to: image.rx.kfImage(options: [.transition(.fade(0.2)),
                                                   .keepCurrentImageWhileLoading,
                                                   .forceTransition]))
             .disposed(by: disposeBag)
